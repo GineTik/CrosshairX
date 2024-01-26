@@ -2,13 +2,35 @@
     x:Class="CrosshairX.Views.HomePage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:CrosshairX"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource PrimaryBackground}">
 
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Header -->
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                    BorderThickness="0 0 0 1" BorderBrush="{ThemeResource PrimaryBorder}">
+            <StackPanel Orientation="Horizontal" Margin="40 30 0 0">
+                <TextBlock Text="Crosshair" FontWeight="Bold" FontSize="20" Margin="0 0 10 0" />
+                <TextBlock Text="X" Foreground="Chocolate" FontWeight="Bold" FontSize="20"/>
+            </StackPanel>
+        </StackPanel>
+        
+        <!-- Sidebar -->
+        <StackPanel Grid.Column="0" Grid.Row="1"
+                    BorderThickness="0 0 1 0" BorderBrush="{ThemeResource PrimaryBorder}"></StackPanel>
+        
+        <!-- Main -->
+        <StackPanel Grid.Column="1" Grid.Row="1"></StackPanel>
     </Grid>
 </Page>

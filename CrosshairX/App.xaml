@@ -4,4 +4,13 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:CrosshairX">
 
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light" Source="Resources/Themes/Theme.Light.xaml" />
+                <ResourceDictionary x:Key="Dark" Source="Resources/Themes/Theme.Dark.xaml" />
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+
 </Application>
