@@ -16,16 +16,19 @@ public class RelayCommand<TParameter> : ICommand
         _canExecuteAction = canExecuteAction;
     }
 
-    public bool CanExecute(object parameter)
+    public bool CanExecute(object? parameter)
     {
-        if (parameter == null) throw new ArgumentNullException(nameof(parameter));
-        return _canExecuteAction?.Invoke((TParameter)parameter) ?? true;
+        return _canExecuteAction?.Invoke(parameter == null 
+                ? default 
+                : (TParameter)parameter) 
+            ?? true;
     }
 
-    public void Execute(object parameter)
+    public void Execute(object? parameter)
     {
-        if (parameter == null) throw new ArgumentNullException(nameof(parameter));
-        _executeAction((TParameter)parameter);
+        _executeAction(parameter == null
+            ? default 
+            : (TParameter)parameter);
     }
 }
 

@@ -1,0 +1,75 @@
+﻿<Page
+    x:Class="CrosshairX.Layout"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:CrosshairX"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:userControls="using:CrosshairX.UserControls"
+    xmlns:viewModels="using:CrosshairX.ViewModels"
+    xmlns:views="using:CrosshairX.Views"
+    mc:Ignorable="d"
+    Background="{ThemeResource PrimaryBackground}">
+
+    <Page.DataContext>
+        <viewModels:LayoutViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Header -->
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"
+                    BorderThickness="0 0 0 1" BorderBrush="{ThemeResource PrimaryBorder}">
+            <StackPanel Orientation="Horizontal" Margin="40 30 0 0">
+                <TextBlock Text="Crosshair" FontWeight="Bold" FontSize="18" Margin="0 0 10 0" />
+                <TextBlock Text="X" Foreground="Chocolate" FontWeight="Bold" 
+                           FontSize="18"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Sidebar -->
+        <StackPanel Grid.Column="0" Grid.Row="1"
+                    BorderThickness="0 0 1 0" BorderBrush="{ThemeResource PrimaryBorder}"
+                    Padding="40">
+
+            <TextBlock Text="Get started" Foreground="{ThemeResource GrayText}"
+                       Margin="0 0 0 10"/>
+
+            <userControls:SidebarItem Icon="Home24" Text="Explore"
+                                      Command="{x:Bind ViewModel.NavigateCommand}"
+                                      NavigateTo="views:HomePage" />
+            <userControls:SidebarItem Icon="Globe24" Text="Community"
+                                      Command="{x:Bind ViewModel.NavigateCommand}"
+                                      NavigateTo="views:CommunityPage"/>
+            <userControls:SidebarItem Icon="Heart24" Text="Saved" />
+            <userControls:SidebarItem Icon="Accessibility24" Text="Designer" />
+            <userControls:SidebarItem Icon="Image24" Text="Images" />
+            <userControls:SidebarItem Icon="Share24" Text="Share" />
+
+            <TextBlock Text="Settings" Foreground="{ThemeResource GrayText}"
+                       Margin="0 20 0 10"/>
+
+            <userControls:SidebarItem Icon="FullScreenMinimize24" Text="Exclusive Fullscreen" />
+            <userControls:SidebarItem Icon="Target24" Text="Position" />
+            <userControls:SidebarItem Icon="EyeHide24" Text="Toggle" />
+            <userControls:SidebarItem Icon="Options24" Text="Options" />
+            <userControls:SidebarItem Icon="PersonSupport24" Text="Support" />
+
+        </StackPanel>
+
+        <!-- Main -->
+        <StackPanel Grid.Column="1" Grid.Row="1"
+                    Padding="20">
+            <Frame Content="{x:Bind ViewModel.RootFrame, Mode=TwoWay}" />
+        </StackPanel>
+    </Grid>
+</Page>

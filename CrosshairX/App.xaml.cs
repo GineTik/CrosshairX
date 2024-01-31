@@ -14,8 +14,22 @@ namespace CrosshairX
     /// </summary>
     sealed partial class App : Application
     {
-        public static IServiceProvider Services = null!;
-        
+        private static IServiceProvider? _serviceProvider;
+        public static IServiceProvider Services
+        {
+            get
+            {
+                if (_serviceProvider == null)
+                {
+                    var services = new ServiceCollection();
+                    Startup.ConfigureServiceCollection(services);
+                    _serviceProvider = services.BuildServiceProvider();
+                }
+
+                return _serviceProvider;
+            }
+        }
+
         /// <summary>
         /// Инициализирует одноэлементный объект приложения. Это первая выполняемая строка разрабатываемого
         /// кода, поэтому она является логическим эквивалентом main() или WinMain().
@@ -24,10 +38,6 @@ namespace CrosshairX
         {
             InitializeComponent();
             Suspending += OnSuspending;
-
-            var services = new ServiceCollection();
-            Startup.ConfigureServiceCollection(services);
-            Services = services.BuildServiceProvider();
         }
 
         /// <summary>
@@ -64,7 +74,7 @@ namespace CrosshairX
                     // Если стек навигации не восстанавливается для перехода к первой странице,
                     // настройка новой страницы путем передачи необходимой информации в качестве параметра
                     // навигации
-                    rootFrame.Navigate(typeof(HomePage), e.Arguments);
+                    rootFrame.Navigate(typeof(Layout), e.Arguments);
                 }
                 // Обеспечение активности текущего окна
                 Window.Current.Activate();
