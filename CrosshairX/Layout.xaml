@@ -8,6 +8,7 @@
     xmlns:userControls="using:CrosshairX.UserControls"
     xmlns:viewModels="using:CrosshairX.ViewModels"
     xmlns:views="using:CrosshairX.Views"
+    xmlns:markups="using:CrosshairX.Markups"
     mc:Ignorable="d"
     Background="{ThemeResource PrimaryBackground}">
 
@@ -47,7 +48,7 @@
             <userControls:SidebarItem Icon="Home24" Text="Explore"
                                       Command="{x:Bind ViewModel.NavigateCommand}"
                                       NavigateTo="views:HomePage" />
-            <userControls:SidebarItem Icon="Globe24" Text="Community"
+            <userControls:SidebarItem Icon="Globe24" x:Uid="Community"
                                       Command="{x:Bind ViewModel.NavigateCommand}"
                                       NavigateTo="views:CommunityPage"/>
             <userControls:SidebarItem Icon="Heart24" Text="Saved" />

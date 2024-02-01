@@ -4,10 +4,20 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:CrosshairX.ViewModels"
     mc:Ignorable="d"
     Background="{ThemeResource PrimaryBackground}">
 
+    <Page.DataContext>
+        <viewModels:HomeViewModel x:Name="ViewModel" />
+    </Page.DataContext>
+
     <Grid>
-        <TextBlock Text="Home page" />
+        <StackPanel>
+            <TextBlock Text="Home page" />
+            <Button Content="Set" Command="{x:Bind ViewModel.SetCursorCommand}" />
+            <Button Content="Return" Command="{x:Bind ViewModel.ReturnCursorCommand}" />
+            <!--<Button Content="Lang" Command="{x:Bind ViewModel}"></Button>-->
+        </StackPanel>
     </Grid>
 </Page>

@@ -20,7 +20,7 @@ namespace CrosshairX.ViewModels
         public LayoutViewModel()
         {
             RootFrame = new Frame();
-            RootFrame.Navigate(typeof(CommunityPage));
+            RootFrame.Navigate(typeof(HomePage));
             NavigateCommand = new RelayCommand<Type>(NavigateTo);
         }
 

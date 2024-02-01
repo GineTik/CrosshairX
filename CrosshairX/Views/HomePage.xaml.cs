@@ -1,6 +1,5 @@
-﻿using Windows.UI.Xaml.Controls;
-using CrosshairX.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
+﻿using CrosshairX.ViewModels;
+using Windows.UI.Xaml.Controls;
 
 namespace CrosshairX.Views
 {
@@ -9,7 +8,7 @@ namespace CrosshairX.Views
         public HomePage()
         {
             InitializeComponent();
-            //DataContext = new HomeViewModel(); //App.Services.GetRequiredService<HomeViewModel>();
+            DataContext = new HomeViewModel(); //App.Services.GetRequiredService<HomeViewModel>();
         }
     }
 }
