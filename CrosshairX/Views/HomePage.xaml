@@ -15,8 +15,7 @@
     <Grid>
         <StackPanel>
             <TextBlock Text="Home page" />
-            <Button Content="Set" Command="{x:Bind ViewModel.SetCursorCommand}" />
-            <Button Content="Return" Command="{x:Bind ViewModel.ReturnCursorCommand}" />
+            <!--<Button Content="Set" Command="{x:Bind ViewModel.SwitchLanguageCommand}" />-->
             <!--<Button Content="Lang" Command="{x:Bind ViewModel}"></Button>-->
         </StackPanel>
     </Grid>

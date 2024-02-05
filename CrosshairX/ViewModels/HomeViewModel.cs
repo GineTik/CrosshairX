@@ -1,28 +1,26 @@
-﻿using System.Windows.Input;
-using CrosshairX.ViewModels.General;
-using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml;
+﻿using CrosshairX.ViewModels.General;
+using System.Windows.Input;
 
 namespace CrosshairX.ViewModels;
 
 public class HomeViewModel : ObservableByProperty
 {
-    public ICommand SetCursorCommand { get; set; }
-    public ICommand ReturnCursorCommand { get; set; }
+    public ICommand SwitchLanguageCommand { get; set; }
 
     public HomeViewModel()
     {
-        SetCursorCommand = new RelayCommand(SetCursor);
-        ReturnCursorCommand = new RelayCommand(ReturnCursor);
+        SwitchLanguageCommand = new RelayCommand(ToEnglish);
     }
 
-    public void SetCursor()
+    public void ToEnglish()
     {
         Localizer.ToEnglish();
+        SwitchLanguageCommand = new RelayCommand(ToUkrainian);
     }
 
-    public void ReturnCursor()
+    public void ToUkrainian()
     {
         Localizer.ToUkrainian();
+        SwitchLanguageCommand = new RelayCommand(ToEnglish);
     }
 }

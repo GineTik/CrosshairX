@@ -63,7 +63,8 @@
             <userControls:SidebarItem Icon="Target24" Text="Position" />
             <userControls:SidebarItem Icon="EyeHide24" Text="Toggle" />
             <userControls:SidebarItem Icon="Options24" Text="Options" />
-            <userControls:SidebarItem Icon="PersonSupport24" Text="Support" />
+            <userControls:SidebarItem Icon="Translate24" x:Uid="Translate"
+                                      Command="{x:Bind ViewModel.SwitchLanguageCommand}" />
 
         </StackPanel>
 

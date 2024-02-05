@@ -129,7 +129,6 @@
       <DependentUpon>Layout.xaml</DependentUpon>
     </Compile>
     <Compile Include="Localizer.cs" />
-    <Compile Include="Markups\LocalizationMarkup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ThemeSwitcher.cs" />
@@ -211,12 +210,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Resources\Languages\Language.en.resw" />
-  </ItemGroup>
-  <ItemGroup>
-    <PRIResource Include="Resources\Languages\Language.ua.resw" />
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\uk-UA\Resources.resw" />

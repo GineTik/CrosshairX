@@ -120,4 +120,7 @@
   <data name="Community.Text" xml:space="preserve">
     <value>Спільнота</value>
   </data>
+  <data name="Translate.Text" xml:space="preserve">
+    <value>Перекласти</value>
+  </data>
 </root>

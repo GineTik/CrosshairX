@@ -1,6 +1,7 @@
 ﻿using CrosshairX.ViewModels.General;
 using CrosshairX.Views;
 using System;
+using System.Windows.Input;
 using Windows.UI.Xaml.Controls;
 
 namespace CrosshairX.ViewModels
@@ -15,13 +16,15 @@ namespace CrosshairX.ViewModels
             set => SetField(ref _rootFrame, value);
         }
 
-        public RelayCommand<Type> NavigateCommand { get; set; }
+        public ICommand NavigateCommand { get; set; }
+        public ICommand SwitchLanguageCommand { get; set; }
 
         public LayoutViewModel()
         {
             RootFrame = new Frame();
             RootFrame.Navigate(typeof(HomePage));
             NavigateCommand = new RelayCommand<Type>(NavigateTo);
+            SwitchLanguageCommand = new RelayCommand(Localizer.SwitchLanguage);
         }
 
         public void NavigateTo(Type? pageType)
